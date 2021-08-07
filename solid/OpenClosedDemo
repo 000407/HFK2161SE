@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Set<Engineer> engineers = new HashSet<>();
+        
+        engineers.add(new Engineer("John"));
+        engineers.add(new Engineer("Jane"));
+        engineers.add(new Engineer("Tom"));
+        
+        EducationInstitute apiit = new EducationInstitute();
+        apiit.setLecturers(engineers);
+    }
+}
+
+class EducationInstitute {
+    private Set<Educator> lecturers;
+    
+    public void setLecturers(Set<Educator> lecturers) {
+        this.lecturers = lecturers;
+    }
+    
+    public Set<Educator> getLecturers() {
+        return this.lecturers;
+    }
+}
+
+interface Educator {
+    void teach();
+
+    void research();
+}
+
+class Engineer {
+    public final String name;
+    
+    public Engineer(String name) {
+        this.name = name;
+    }
+}
